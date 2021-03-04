@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/lancamentos")
@@ -30,7 +31,7 @@ public class LancamentoController {
     }
 
     @GetMapping("/{id}")
-    public Lancamento recuperarLancamento(@PathVariable Long id) {
+    public Optional<Lancamento> recuperarLancamento(@PathVariable Long id) {
         return lancamentoService.recuperarLancamento(id);
     }
 

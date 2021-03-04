@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClienteService {
@@ -22,8 +23,8 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente recuperarCliente(Long id) {
-        return clienteRepository.getOne(id);
+    public Optional<Cliente> recuperarCliente(Long id) {
+        return clienteRepository.findById(id);
     }
 
     public Cliente atualizar(Long id, Cliente cliente) {

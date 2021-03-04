@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/clientes")
 public class ClienteController {
 
     @Autowired
@@ -29,7 +31,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public Cliente recuperarLancamento(@PathVariable Long id) {
+    public Optional<Cliente> recuperarCliente(@PathVariable Long id) {
         return clienteService.recuperarCliente(id);
     }
 

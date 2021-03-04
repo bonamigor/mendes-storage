@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LancamentoService {
@@ -22,8 +23,8 @@ public class LancamentoService {
         return lancamentoRepository.findAll();
     }
 
-    public Lancamento recuperarLancamento(Long id) {
-        return lancamentoRepository.getOne(id);
+    public Optional<Lancamento> recuperarLancamento(Long id) {
+        return lancamentoRepository.findById(id);
     }
 
     public Lancamento atualizar(Long id, Lancamento lancamento) {
