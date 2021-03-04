@@ -44,7 +44,7 @@ public class ClienteControllerTest extends StorageApplicationTests {
         clienteList.add(new Cliente(1L, "Juarez", "47122285049"));
         clienteList.add(new Cliente(2L, "Rafael", "70102631166"));
 
-        when(clienteService.findAll()).thenReturn(clienteList);
+        when(clienteService.listarTodosClientes()).thenReturn(clienteList);
 
         this.mockMvc.perform(MockMvcRequestBuilders.get("/clientes")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -54,7 +54,7 @@ public class ClienteControllerTest extends StorageApplicationTests {
     @Test
     public void criarClienteComSucesso() throws Exception {
         Cliente cliente = new Cliente(2L, "Rafael Bonamigo", "70102631166");
-        when(clienteService.save(any(Cliente.class))).thenReturn(cliente);
+        when(clienteService.salvar(any(Cliente.class))).thenReturn(cliente);
         ObjectMapper objectMapper = new ObjectMapper();
         String eatToDoJSON = objectMapper.writeValueAsString(cliente);
 
