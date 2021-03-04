@@ -22,6 +22,10 @@ public class LancamentoService {
         return lancamentoRepository.findAll();
     }
 
+    public Lancamento recuperarLancamento(Long id) {
+        return lancamentoRepository.getOne(id);
+    }
+
     public Lancamento atualizar(Long id, Lancamento lancamento) {
         Lancamento lancamentoSalvo = buscaLancamentoExistente(id);
         BeanUtils.copyProperties(lancamento, lancamentoSalvo, "id");
