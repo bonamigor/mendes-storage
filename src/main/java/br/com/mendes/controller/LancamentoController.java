@@ -29,6 +29,11 @@ public class LancamentoController {
         return lancamentoService.listarTodosLancamentos();
     }
 
+    @GetMapping("/{id}")
+    public Lancamento recuperarLancamento(@PathVariable Long id) {
+        return lancamentoService.recuperarLancamento(id);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Lancamento> atualizar(@PathVariable Long id, @Valid @RequestBody Lancamento lancamento) {
         Lancamento lancamentoSalvo = lancamentoService.atualizar(id, lancamento);
